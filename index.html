@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifólio - Allysson Barbosa</title>
+    <style>
+        /* RESET BASICO */
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("Perfil.jpg") no-repeat center center/cover;
+            color: white;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4PX solid white;
+            margin-bottom: 20px;
+        }
+
+        header h1{font-size: 3rem;}
+        header p{font-size: 1.3rem;}
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: #222;
+            padding: 10px;
+            text-align: center;
+            /* z-index: 1000px; */
+
+
+        }
+
+        nav a{
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: #00bcd4; }
+        
+
+        section{
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #222;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #00bcd4;
+            margin: 10px auto;
+
+        }
+
+        .projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .projeto {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .projeto:hover {
+            transform: translateY(-5px);
+        }
+
+        .projeto h3 {
+            margin-bottom: 10px;
+        }
+        .projeto a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #00bcd4;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .projeto a:hover {text-decoration: underline;}
+
+        .contato {
+            text-align: center;
+        }
+
+        footer{
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        /* animações de entrada */
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+
+
+    </style>
+
+</head>
+<body>
+    
+    <header>
+        <img src="Perfil.jpg" alt="Foto de Allysson">
+        <h1>Allysson Barbosa</h1>
+        <p>Desenvolvedor Python & Web | Estudante de Sistema de Informação</p>
+    </header>
+
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <section id="sobre" class="fade-in"> 
+        <h2>Sobre Mim</h2>
+        <p>Olá! Meu nome é <b>Allysson</b>, sou estudante de Sistemas de informação e sou apaixonado pelo desenvolvimento de software.
+        Tenho expereiência com <b>Python, Django, Html, CSS</b> e gosto de criar soluções criativas para problemas reais. </p>
+    </section>
+
+    <section id="projetos" class="fade-in">
+        <h2>Projetos</h2>
+        <div class="projetos">
+            <div class="projeto">
+                <h3>Sistema de Eventos e Certificados</h3>
+                <p>Plataforma para gerar certificados automaticos em eventos</p>
+                <p><b>Tecnologias:</b> Python, Django</p>
+                <a href="https://github.com/AllyssonBarbosa">Ver no GitHub</a>
+            </div>
+        
+            <div class="projeto">
+                <h3> Loja Virtual</h3>
+                <p>Protótipo de e-comerce com carrinho de compras</p>
+                <p><b>Tecnologias:</b> Django, SQLite</p>
+                <a href="https://github.com/AllyssonBarbosa"> Ver no GitHub</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contato" class="contato fade-in">
+        <h2>Contato</h2>
+        <p>E-mail: <a href="mailto:allyssonbarbosa33@gmail.com">allyssonbarbosa33@gmail.com</a></p>
+        <p>Linkedin: <a href="https://www.linkedin.com/in/allysson-barbosa" target="_blank">linkedin.com/in/allysson-barbosa</a></p>
+        <p>GitHub: <a href="https://github.com/AllyssonBarbosa"target="_blank" >https://github.com/AllyssonBarbosa</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 - Desenvolvido por Allysson Barbosa</p>
+    </footer>
+
+    <script>
+        const faders = document.querySelectorAll('.fade-in')
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        faders.forEach(fade => {
+            observer.observe(fade);
+        })
+    </script>
+
+</body>
+</html>
